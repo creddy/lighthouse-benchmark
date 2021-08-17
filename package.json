@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@lhci/cli": "^0.8.0",
+    "glob": "^7.1.7",
+    "percentile": "^1.5.0"
+  },
+  "scripts": {
+    "benchmark": "./benchmark.sh",
+    "results": "node parse-results.js"
+  }
+}

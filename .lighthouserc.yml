@@ -1,0 +1,7 @@
+ci:
+  collect:
+    settings:
+      preset: desktop
+      onlyCategories:
+        - performance
+    numberOfRuns: 5
