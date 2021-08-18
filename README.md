@@ -2,6 +2,13 @@
 
 ## Setup
 
+This has been tested using
+
+```
+$ node --version
+v14.17.3
+```
+
 Install the dependencies
 
 ```
