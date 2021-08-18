@@ -8,25 +8,38 @@ const percentile = require("percentile");
 
 const pages = glob.sync('.lighthouseci/lhr-*.json');
 
-const ttiResults = {};
+const lhciResults = {};
 
 pages.forEach((fileName) => {
   const results = JSON.parse(fs.readFileSync(fileName));
-  if (!ttiResults[results.finalUrl]) {
-    ttiResults[results.finalUrl] = [];
+  if (!lhciResults[results.finalUrl]) {
+    lhciResults[results.finalUrl] = { interactive: [], speedIndex: [], totalBlockingTime: [], serverResponseTime: []};
   }
 
-  ttiResults[results.finalUrl].push(results.audits.interactive.numericValue);
+  lhciResults[results.finalUrl]['interactive'].push(results.audits.metrics.details.items[0].interactive);
+  lhciResults[results.finalUrl]['speedIndex'].push(results.audits.metrics.details.items[0].speedIndex);
+  lhciResults[results.finalUrl]['totalBlockingTime'].push(results.audits.metrics.details.items[0].totalBlockingTime);
+  lhciResults[results.finalUrl]['serverResponseTime'].push(results.audits['server-response-time'].numericValue);
+
 });
 
-for(let url in ttiResults) {
-  const percentiles = percentile(REPORT_PERCENTILES, ttiResults[url]);
+for(let url in lhciResults) {
   console.log('-------------------');
   console.log('Performance results');
-  console.log('Number of runs:', ttiResults[url].length);
+  console.log('Number of runs:', lhciResults[url]['interactive'].length);
   console.log('URL:', url.replace(/\/\/.*@/, '//'));
-  console.log("p50 time to interactive is", percentiles[0].toFixed(), "ms", );
-  console.log("p90 time to interactive is", percentiles[1].toFixed(), "ms");
+
+  const metrics = [];
+
+  Object.keys(lhciResults[url]).forEach((metric) => {
+    const percentiles = percentile(REPORT_PERCENTILES, lhciResults[url][metric]);
+    metrics.push({
+      metric: metric,
+      'p50': percentiles[0].toFixed() + 'ms',
+      'p90': percentiles[1].toFixed() + 'ms'
+    })
+  })
+  console.table(metrics);
   console.log('-------------------\n');
 }
 
