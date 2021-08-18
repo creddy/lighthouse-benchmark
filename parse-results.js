@@ -25,8 +25,8 @@ for(let url in ttiResults) {
   console.log('Performance results');
   console.log('Number of runs:', ttiResults[url].length);
   console.log('URL:', url.replace(/\/\/.*@/, '//'));
-  console.log("p50 time to interactive is", percentiles[0], "ms", );
-  console.log("p90 time to interactive is", percentiles[1], "ms");
+  console.log("p50 time to interactive is", percentiles[0].toFixed(), "ms", );
+  console.log("p90 time to interactive is", percentiles[1].toFixed(), "ms");
   console.log('-------------------\n');
 }
 
