@@ -16,7 +16,14 @@ And modify the file for your needs. If you need basic auth add it to the URL lik
 URLS=( 'http://USERNAME:PASSWORD@example.com' )
 ```
 
-**You can skip this step if you're using Docker**
+## Using Docker
+
+```
+docker build -t lighthouse-bench .
+docker run lighthouse-bench
+```
+
+## Without Docker
 
 This has been tested using
 
@@ -31,21 +38,10 @@ Install the dependencies
 npm i
 ```
 
-
-
 ## Run
-
-### Using npm
 
 ```
 npm run benchmark
-```
-
-### Using Docker
-
-```
-docker build -t lighthouse-bench .
-docker run lighthouse-bench
 ```
 
 ## Get your results
@@ -53,7 +49,6 @@ docker run lighthouse-bench
 ```
 npm run results
 ```
-
 
 ```
 -------------------
@@ -101,4 +96,3 @@ URL: https://www.iana.org/
 └─────────┴────────────────────────────┴──────────┴──────────┘
 -------------------
 ```
-
