@@ -1,5 +1,7 @@
 # Benchmark via lighthouse
 
+This project is a wrapper around [lhci](https://github.com/GoogleChrome/lighthouse-ci)
+
 ## Setup
 
 This has been tested using
