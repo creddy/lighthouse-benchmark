@@ -1,6 +1,12 @@
 "use strict";
 
 const REPORT_PERCENTILES = [50, 90];
+const METRICS_TO_SHOW = [
+  'interactive',
+  'speedIndex',
+  'totalBlockingTime',
+  'observedDomContentLoaded'
+]
 
 const glob = require("glob")
 const fs = require("fs");
@@ -13,14 +19,18 @@ const lhciResults = {};
 pages.forEach((fileName) => {
   const results = JSON.parse(fs.readFileSync(fileName));
   if (!lhciResults[results.finalUrl]) {
-    lhciResults[results.finalUrl] = { interactive: [], speedIndex: [], totalBlockingTime: [], serverResponseTime: []};
+    lhciResults[results.finalUrl] = { serverResponseTime: [] };
+
+    METRICS_TO_SHOW.forEach((metric) => {
+      lhciResults[results.finalUrl][metric] = [];
+    });
   }
 
-  lhciResults[results.finalUrl]['interactive'].push(results.audits.metrics.details.items[0].interactive);
-  lhciResults[results.finalUrl]['speedIndex'].push(results.audits.metrics.details.items[0].speedIndex);
-  lhciResults[results.finalUrl]['totalBlockingTime'].push(results.audits.metrics.details.items[0].totalBlockingTime);
-  lhciResults[results.finalUrl]['serverResponseTime'].push(results.audits['server-response-time'].numericValue);
+  METRICS_TO_SHOW.forEach((metric) => {
+    lhciResults[results.finalUrl][metric].push(results.audits.metrics.details.items[0][metric]);
+  });
 
+  lhciResults[results.finalUrl]['serverResponseTime'].push(results.audits['server-response-time'].numericValue);
 });
 
 for(let url in lhciResults) {
