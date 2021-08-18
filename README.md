@@ -2,7 +2,21 @@
 
 This project is a wrapper around [lhci](https://github.com/GoogleChrome/lighthouse-ci)
 
-## Setup
+## Getting started
+
+Add a `.env` file
+
+```
+cp .env.example .env
+```
+
+And modify the file for your needs. If you need basic auth add it to the URL like so:
+
+```
+URLS=( 'http://USERNAME:PASSWORD@example.com' )
+```
+
+**You can skip this step if you're using Docker**
 
 This has been tested using
 
@@ -17,22 +31,21 @@ Install the dependencies
 npm i
 ```
 
-Add a `.env` file
 
-```
-cp .env.example .env
-```
-
-And modify the file for your needs. If you need basic auth add it to the URL like so:
-
-```
-URLS=( 'http://USERNAME:PASSWORD@example.com' )
-```
 
 ## Run
 
+### Using npm
+
 ```
 npm run benchmark
+```
+
+### Using Docker
+
+```
+docker build -t lighthouse-bench .
+docker run lighthouse-bench
 ```
 
 ## Get your results
@@ -50,11 +63,11 @@ URL: http://example.com/
 ┌─────────┬────────────────────────────┬─────────┬─────────┐
 │ (index) │           metric           │   p50   │   p90   │
 ├─────────┼────────────────────────────┼─────────┼─────────┤
-│    0    │    'serverResponseTime'    │ '11ms'  │ '39ms'  │
-│    1    │       'interactive'        │ '175ms' │ '199ms' │
-│    2    │        'speedIndex'        │ '175ms' │ '199ms' │
+│    0    │    'serverResponseTime'    │ '10ms'  │ '10ms'  │
+│    1    │       'interactive'        │ '194ms' │ '194ms' │
+│    2    │        'speedIndex'        │ '194ms' │ '194ms' │
 │    3    │    'totalBlockingTime'     │  '0ms'  │  '0ms'  │
-│    4    │ 'observedDomContentLoaded' │ '74ms'  │ '126ms' │
+│    4    │ 'observedDomContentLoaded' │ '42ms'  │ '146ms' │
 └─────────┴────────────────────────────┴─────────┴─────────┘
 -------------------
 
@@ -62,29 +75,29 @@ URL: http://example.com/
 Performance results
 Number of runs: 5
 URL: https://www.google.com/
-┌─────────┬────────────────────────────┬──────────┬──────────┐
-│ (index) │           metric           │   p50    │   p90    │
-├─────────┼────────────────────────────┼──────────┼──────────┤
-│    0    │    'serverResponseTime'    │  '87ms'  │  '90ms'  │
-│    1    │       'interactive'        │ '1056ms' │ '1128ms' │
-│    2    │        'speedIndex'        │ '532ms'  │ '612ms'  │
-│    3    │    'totalBlockingTime'     │  '30ms'  │  '38ms'  │
-│    4    │ 'observedDomContentLoaded' │ '502ms'  │ '595ms'  │
-└─────────┴────────────────────────────┴──────────┴──────────┘
+┌─────────┬────────────────────────────┬─────────┬─────────┐
+│ (index) │           metric           │   p50   │   p90   │
+├─────────┼────────────────────────────┼─────────┼─────────┤
+│    0    │    'serverResponseTime'    │ '168ms' │ '188ms' │
+│    1    │       'interactive'        │ '563ms' │ '589ms' │
+│    2    │        'speedIndex'        │ '571ms' │ '608ms' │
+│    3    │    'totalBlockingTime'     │  '0ms'  │  '0ms'  │
+│    4    │ 'observedDomContentLoaded' │ '600ms' │ '631ms' │
+└─────────┴────────────────────────────┴─────────┴─────────┘
 -------------------
 
 -------------------
 Performance results
 Number of runs: 5
-URL: https://www.motorola.com/us/
+URL: https://www.iana.org/
 ┌─────────┬────────────────────────────┬──────────┬──────────┐
 │ (index) │           metric           │   p50    │   p90    │
 ├─────────┼────────────────────────────┼──────────┼──────────┤
-│    0    │    'serverResponseTime'    │  '30ms'  │ '135ms'  │
-│    1    │       'interactive'        │ '6223ms' │ '6653ms' │
-│    2    │        'speedIndex'        │ '3884ms' │ '5095ms' │
-│    3    │    'totalBlockingTime'     │ '104ms'  │ '158ms'  │
-│    4    │ 'observedDomContentLoaded' │ '431ms'  │ '1115ms' │
+│    0    │    'serverResponseTime'    │  '79ms'  │  '87ms'  │
+│    1    │       'interactive'        │ '1282ms' │ '1478ms' │
+│    2    │        'speedIndex'        │ '1053ms' │ '1141ms' │
+│    3    │    'totalBlockingTime'     │  '0ms'   │  '0ms'   │
+│    4    │ 'observedDomContentLoaded' │ '660ms'  │ '716ms'  │
 └─────────┴────────────────────────────┴──────────┴──────────┘
 -------------------
 ```
