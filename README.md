@@ -2,6 +2,12 @@
 
 ## Setup
 
+Install the dependencies
+
+```
+npm i
+```
+
 Add a `.env` file
 
 ```
