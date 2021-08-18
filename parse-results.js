@@ -1,11 +1,13 @@
 "use strict";
 
 const REPORT_PERCENTILES = [50, 90];
+
 const METRICS_TO_SHOW = [
-  'interactive',
+  'firstContentfulPaint',
   'speedIndex',
+  'interactive',
   'totalBlockingTime',
-  'observedDomContentLoaded'
+  'observedLastVisualChange'
 ]
 
 const glob = require("glob")
@@ -26,11 +28,12 @@ pages.forEach((fileName) => {
     });
   }
 
+  lhciResults[results.finalUrl]['serverResponseTime'].push(results.audits['server-response-time'].numericValue);
+
   METRICS_TO_SHOW.forEach((metric) => {
     lhciResults[results.finalUrl][metric].push(results.audits.metrics.details.items[0][metric]);
   });
 
-  lhciResults[results.finalUrl]['serverResponseTime'].push(results.audits['server-response-time'].numericValue);
 });
 
 for(let url in lhciResults) {
