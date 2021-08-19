@@ -4,9 +4,8 @@ const REPORT_PERCENTILES = [50, 90];
 
 const METRICS_TO_SHOW = [
   'firstContentfulPaint',
-  'speedIndex',
-  'interactive',
   'totalBlockingTime',
+  'interactive',
   'observedLastVisualChange'
 ]
 

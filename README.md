@@ -58,12 +58,11 @@ URL: http://example.com/
 ┌─────────┬────────────────────────────┬─────────┬─────────┐
 │ (index) │           metric           │   p50   │   p90   │
 ├─────────┼────────────────────────────┼─────────┼─────────┤
-│    0    │    'serverResponseTime'    │ '11ms'  │ '12ms'  │
-│    1    │   'firstContentfulPaint'   │ '193ms' │ '194ms' │
-│    2    │        'speedIndex'        │ '193ms' │ '194ms' │
-│    3    │       'interactive'        │ '193ms' │ '194ms' │
-│    4    │    'totalBlockingTime'     │  '0ms'  │  '0ms'  │
-│    5    │ 'observedLastVisualChange' │ '65ms'  │ '73ms'  │
+│    0    │    'serverResponseTime'    │ '10ms'  │ '11ms'  │
+│    1    │   'firstContentfulPaint'   │ '194ms' │ '196ms' │
+│    2    │    'totalBlockingTime'     │  '0ms'  │  '0ms'  │
+│    3    │       'interactive'        │ '194ms' │ '196ms' │
+│    4    │ 'observedLastVisualChange' │ '76ms'  │ '79ms'  │
 └─────────┴────────────────────────────┴─────────┴─────────┘
 -------------------
 
@@ -71,16 +70,15 @@ URL: http://example.com/
 Performance results
 Number of runs: 5
 URL: https://www.google.com/
-┌─────────┬────────────────────────────┬─────────┬──────────┐
-│ (index) │           metric           │   p50   │   p90    │
-├─────────┼────────────────────────────┼─────────┼──────────┤
-│    0    │    'serverResponseTime'    │ '84ms'  │ '158ms'  │
-│    1    │   'firstContentfulPaint'   │ '519ms' │ '777ms'  │
-│    2    │        'speedIndex'        │ '519ms' │ '819ms'  │
-│    3    │       'interactive'        │ '519ms' │ '777ms'  │
-│    4    │    'totalBlockingTime'     │  '0ms'  │  '0ms'   │
-│    5    │ 'observedLastVisualChange' │ '906ms' │ '1199ms' │
-└─────────┴────────────────────────────┴─────────┴──────────┘
+┌─────────┬────────────────────────────┬──────────┬──────────┐
+│ (index) │           metric           │   p50    │   p90    │
+├─────────┼────────────────────────────┼──────────┼──────────┤
+│    0    │    'serverResponseTime'    │  '80ms'  │  '98ms'  │
+│    1    │   'firstContentfulPaint'   │ '578ms'  │ '599ms'  │
+│    2    │    'totalBlockingTime'     │  '24ms'  │  '34ms'  │
+│    3    │       'interactive'        │ '1290ms' │ '1301ms' │
+│    4    │ 'observedLastVisualChange' │ '948ms'  │ '991ms'  │
+└─────────┴────────────────────────────┴──────────┴──────────┘
 -------------------
 
 -------------------
@@ -90,12 +88,11 @@ URL: https://www.iana.org/
 ┌─────────┬────────────────────────────┬──────────┬──────────┐
 │ (index) │           metric           │   p50    │   p90    │
 ├─────────┼────────────────────────────┼──────────┼──────────┤
-│    0    │    'serverResponseTime'    │  '80ms'  │  '94ms'  │
-│    1    │   'firstContentfulPaint'   │ '926ms'  │ '963ms'  │
-│    2    │        'speedIndex'        │ '1084ms' │ '1137ms' │
-│    3    │       'interactive'        │ '1297ms' │ '1480ms' │
-│    4    │    'totalBlockingTime'     │  '0ms'   │  '0ms'   │
-│    5    │ 'observedLastVisualChange' │ '1064ms' │ '1161ms' │
+│    0    │    'serverResponseTime'    │  '88ms'  │ '111ms'  │
+│    1    │   'firstContentfulPaint'   │ '957ms'  │ '979ms'  │
+│    2    │    'totalBlockingTime'     │  '0ms'   │  '0ms'   │
+│    3    │       'interactive'        │ '1400ms' │ '1518ms' │
+│    4    │ 'observedLastVisualChange' │ '1138ms' │ '1246ms' │
 └─────────┴────────────────────────────┴──────────┴──────────┘
 -------------------
 ```
