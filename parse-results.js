@@ -35,6 +35,8 @@ pages.forEach((fileName) => {
 
 });
 
+console.log(new Date().toString());
+
 for(let url in lhciResults) {
   console.log('-------------------');
   console.log('Performance results');
