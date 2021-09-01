@@ -2,7 +2,6 @@ ci:
   collect:
     numberOfRuns: 5
     settings:
-      preset: desktop
       onlyCategories:
         - performance
       chromeFlags: --disable-dev-shm-usage
