@@ -40,8 +40,7 @@ pages.forEach((fileName) => {
 const sortedFetchTimes = fetchTimes.sort((a, b) => a - b)
 
 console.log('Started at: ', sortedFetchTimes[0].toString())
-console.log('Finished at:', sortedFetchTimes[sortedFetchTimes.length - 1].toString())
-console.log('\n')
+console.log('Finished at:', sortedFetchTimes[sortedFetchTimes.length - 1].toString(), '\n')
 
 for (const url in lhciResults) {
   console.log('-------------------')
