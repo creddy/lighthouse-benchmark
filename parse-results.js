@@ -16,6 +16,7 @@ const percentile = require("percentile");
 const pages = glob.sync('.lighthouseci/lhr-*.json');
 
 const lhciResults = {};
+const fetchTimes = [];
 
 pages.forEach((fileName) => {
   const results = JSON.parse(fs.readFileSync(fileName));
@@ -33,9 +34,14 @@ pages.forEach((fileName) => {
     lhciResults[results.finalUrl][metric].push(results.audits.metrics.details.items[0][metric]);
   });
 
+  fetchTimes.push(new Date(results.fetchTime));
 });
 
-console.log(new Date().toString());
+const sortedFetchTimes = fetchTimes.sort((a, b) => a - b);
+
+console.log('Started at: ', sortedFetchTimes[0].toString());
+console.log('Finished at:', sortedFetchTimes[sortedFetchTimes.length - 1].toString());
+console.log('\n');
 
 for(let url in lhciResults) {
   console.log('-------------------');
