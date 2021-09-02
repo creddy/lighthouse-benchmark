@@ -5,8 +5,7 @@ const REPORT_PERCENTILES = [50, 90]
 const METRICS_TO_SHOW = [
   'firstContentfulPaint',
   'totalBlockingTime',
-  'interactive',
-  'observedLastVisualChange'
+  'interactive'
 ]
 
 const glob = require('glob')
