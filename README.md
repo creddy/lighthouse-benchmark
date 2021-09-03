@@ -51,48 +51,48 @@ npm run results
 ```
 
 ```
+Started at:  Thu Sep 02 2021 10:56:37 GMT-0400 (Eastern Daylight Time)
+Finished at: Thu Sep 02 2021 10:58:00 GMT-0400 (Eastern Daylight Time)
+
 -------------------
 Performance results
 Number of runs: 5
 URL: http://example.com/
-┌─────────┬────────────────────────────┬─────────┬─────────┐
-│ (index) │           metric           │   p50   │   p90   │
-├─────────┼────────────────────────────┼─────────┼─────────┤
-│    0    │    'serverResponseTime'    │ '10ms'  │ '11ms'  │
-│    1    │   'firstContentfulPaint'   │ '194ms' │ '196ms' │
-│    2    │    'totalBlockingTime'     │  '0ms'  │  '0ms'  │
-│    3    │       'interactive'        │ '194ms' │ '196ms' │
-│    4    │ 'observedLastVisualChange' │ '76ms'  │ '79ms'  │
-└─────────┴────────────────────────────┴─────────┴─────────┘
+┌─────────┬────────────────────────┬─────────┬─────────┐
+│ (index) │         metric         │   p50   │   p90   │
+├─────────┼────────────────────────┼─────────┼─────────┤
+│    0    │  'serverResponseTime'  │ '11ms'  │ '14ms'  │
+│    1    │ 'firstContentfulPaint' │ '670ms' │ '723ms' │
+│    2    │  'totalBlockingTime'   │  '0ms'  │  '0ms'  │
+│    3    │     'interactive'      │ '670ms' │ '723ms' │
+└─────────┴────────────────────────┴─────────┴─────────┘
 -------------------
 
 -------------------
 Performance results
 Number of runs: 5
 URL: https://www.google.com/
-┌─────────┬────────────────────────────┬──────────┬──────────┐
-│ (index) │           metric           │   p50    │   p90    │
-├─────────┼────────────────────────────┼──────────┼──────────┤
-│    0    │    'serverResponseTime'    │  '80ms'  │  '98ms'  │
-│    1    │   'firstContentfulPaint'   │ '578ms'  │ '599ms'  │
-│    2    │    'totalBlockingTime'     │  '24ms'  │  '34ms'  │
-│    3    │       'interactive'        │ '1290ms' │ '1301ms' │
-│    4    │ 'observedLastVisualChange' │ '948ms'  │ '991ms'  │
-└─────────┴────────────────────────────┴──────────┴──────────┘
+┌─────────┬────────────────────────┬──────────┬──────────┐
+│ (index) │         metric         │   p50    │   p90    │
+├─────────┼────────────────────────┼──────────┼──────────┤
+│    0    │  'serverResponseTime'  │  '86ms'  │  '98ms'  │
+│    1    │ 'firstContentfulPaint' │ '2703ms' │ '2797ms' │
+│    2    │  'totalBlockingTime'   │ '481ms'  │ '512ms'  │
+│    3    │     'interactive'      │ '5719ms' │ '5859ms' │
+└─────────┴────────────────────────┴──────────┴──────────┘
 -------------------
 
 -------------------
 Performance results
 Number of runs: 5
 URL: https://www.iana.org/
-┌─────────┬────────────────────────────┬──────────┬──────────┐
-│ (index) │           metric           │   p50    │   p90    │
-├─────────┼────────────────────────────┼──────────┼──────────┤
-│    0    │    'serverResponseTime'    │  '88ms'  │ '111ms'  │
-│    1    │   'firstContentfulPaint'   │ '957ms'  │ '979ms'  │
-│    2    │    'totalBlockingTime'     │  '0ms'   │  '0ms'   │
-│    3    │       'interactive'        │ '1400ms' │ '1518ms' │
-│    4    │ 'observedLastVisualChange' │ '1138ms' │ '1246ms' │
-└─────────┴────────────────────────────┴──────────┴──────────┘
+┌─────────┬────────────────────────┬──────────┬──────────┐
+│ (index) │         metric         │   p50    │   p90    │
+├─────────┼────────────────────────┼──────────┼──────────┤
+│    0    │  'serverResponseTime'  │  '22ms'  │  '24ms'  │
+│    1    │ 'firstContentfulPaint' │ '1628ms' │ '1698ms' │
+│    2    │  'totalBlockingTime'   │  '62ms'  │ '128ms'  │
+│    3    │     'interactive'      │ '4981ms' │ '5062ms' │
+└─────────┴────────────────────────┴──────────┴──────────┘
 -------------------
 ```
