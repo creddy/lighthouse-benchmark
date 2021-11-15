@@ -1,6 +1,6 @@
 ci:
   collect:
-    numberOfRuns: 5
+    numberOfRuns: 10
     settings:
       onlyCategories:
         - performance
